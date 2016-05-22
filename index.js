@@ -10,12 +10,16 @@ xhr.get('https://api.wheretheiss.at/v1/satellites', function(err, data) {
 
   var satellite = JSON.parse(data.body.replace('/[|]/g', ''))[0]
 
-  xhr.get('https://api.wheretheiss.at/v1/satellites/' + satellite.id, function(err, res) {
-    console.log((err) ? err : res)
+  document.getElementById('button').addEventListener('click', function () {
 
-    var iss = JSON.parse(res.body)
+    xhr.get('https://api.wheretheiss.at/v1/satellites/' + satellite.id, function(err, res) {
+      console.log("HEY HEY", (err) ? err : res)
 
-    document.body.innerHTML = whereTheIss(iss)
+      var iss = JSON.parse(res.body)
+
+      document.getElementById('paragraph').innerHTML = whereTheIss(iss)
+
+    })
 
   })
 
