@@ -13,11 +13,11 @@ xhr.get('https://api.wheretheiss.at/v1/satellites', function(err, data) {
   document.getElementById('button').addEventListener('click', function () {
 
     xhr.get('https://api.wheretheiss.at/v1/satellites/' + satellite.id, function(err, res) {
-      console.log("HEY WE'VE UPDATED", (err) ? err : res)
+      console.log("HEY HEY", (err) ? err : res)
 
       var iss = JSON.parse(res.body)
 
-      document.getElementById('paragraph').text = whereTheIss(iss)
+      document.getElementById('paragraph').innerHTML = whereTheIss(iss)
 
     })
 
