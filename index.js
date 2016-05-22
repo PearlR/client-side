@@ -17,7 +17,7 @@ xhr.get('https://api.wheretheiss.at/v1/satellites', function(err, data) {
 
       var iss = JSON.parse(res.body)
 
-      document.body.innerHTML = whereTheIss(iss)
+      document.body.innerHTML = example({ name: iss.name, body: whereTheIss(iss) })
 
     })
 
